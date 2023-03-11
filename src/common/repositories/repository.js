@@ -1,6 +1,6 @@
-import axios from "axios";
-import router from "@/router";
-import TokenService from "../helpers";
+import axios from 'axios';
+import router from '@/router';
+import TokenService from '../helpers';
 
 const service = axios.create({
   withCredentials: true,
@@ -14,12 +14,12 @@ service.interceptors.request.use(
     if (token) {
       config.headers.Authorization = token;
     } else {
-      router.push({ name: "login" });
+      router.push({ name: 'login' });
     }
   },
   (error) => {
     return Promise.reject(error);
-  }
+  },
 );
 
 service.interceptors.response.use(
@@ -34,26 +34,26 @@ service.interceptors.response.use(
       switch (error.response.status) {
         case 401:
           TokenService.removeToken();
-          router.push({ name: "login" });
+          router.push({ name: 'login' });
           break;
         case 403:
-          router.push({ name: "500" });
+          router.push({ name: '500' });
           break;
         case 404:
-          router.push({ name: "404" });
+          router.push({ name: '404' });
           break;
         case 500:
-          router.push({ name: "500" });
+          router.push({ name: '500' });
           break;
         case 503:
-          router.push({ name: "500" });
+          router.push({ name: '500' });
           break;
         default:
-          router.push({ name: "500" });
+          router.push({ name: '500' });
       }
     }
 
     return Promise.reject(error);
-  }
+  },
 );
 export default service;

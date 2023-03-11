@@ -1,5 +1,5 @@
-const TOKEN_KEY = "access_token";
-const REFRESH_TOKEN_KEY = "refresh_token";
+const TOKEN_KEY = 'access_token';
+const REFRESH_TOKEN_KEY = 'refresh_token';
 
 const TokenService = {
   getToken() {
@@ -7,7 +7,7 @@ const TokenService = {
   },
 
   setToken(token) {
-    localStorage.setItem(TOKEN_KEY, token || "");
+    localStorage.setItem(TOKEN_KEY, token || '');
   },
 
   removeToken() {
@@ -19,7 +19,7 @@ const TokenService = {
   },
 
   setReFreshToken(refreshToken) {
-    localStorage.setItem(REFRESH_TOKEN_KEY, refreshToken || "");
+    localStorage.setItem(REFRESH_TOKEN_KEY, refreshToken || '');
   },
 
   removeRefreshToken() {

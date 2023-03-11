@@ -1,6 +1,6 @@
-import LoginRepository from "./configs/login-repository.js";
+import DemoRepository from './configs/demo-repository.js';
 const repositories = {
-  login: LoginRepository,
+  demo: DemoRepository,
 };
 
 export const RepositoryFactory = {
